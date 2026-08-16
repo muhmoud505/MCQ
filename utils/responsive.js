@@ -1,4 +1,4 @@
-import {Dimensions,Platform,PixalRatio,StatusBar} from 'react-native';
+import {Dimensions,Platform,PixelRatio,StatusBar} from 'react-native';
 
 const {width:SCREEN_WIDTH,height:SCREEN_HEIGHT}=Dimensions.get('window');
 const refernceWidth=393;
@@ -17,7 +17,7 @@ export const responsiveHeight=(size)=>{
 export const responsiveFontSize=(size)=>{
     const avgScale=(widthScale + heightScale)/2;
     const newSize=size * avgScale;
-    return Math.round(pixalRatio.roundToNearestPixel(newSize));
+    return Math.round(PixelRatio.roundToNearestPixel(newSize));
 }
 
 export const responsiveSize=(size)=>{

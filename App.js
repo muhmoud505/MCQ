@@ -2,6 +2,7 @@
 import { StyleSheet, Text, View,StatusBar } from 'react-native';
 import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from '@react-navigation/native';
 import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
 import { JetBrainsMono_400Regular, JetBrainsMono_500Medium, JetBrainsMono_700Bold } from '@expo-google-fonts/jetbrains-mono';import AppNavigator from './navigation/AppNavigator';
@@ -29,11 +30,11 @@ export default function App() {
     return null;
   }
   return (
-    <NavigationContainer>
-      <AppNavigator>
-
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <AppNavigator>
+          <View style={styles.container}>
+            <Text>Open up App.js to start working on your app!</Text>
       <StatusBar
         barStyle={'light-content'}
         />
@@ -41,6 +42,7 @@ export default function App() {
     </View>
         </AppNavigator>
         </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
