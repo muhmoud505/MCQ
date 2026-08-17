@@ -18,7 +18,9 @@
     "react-native": "0.86.2",
     "react-native-gesture-handler": "~2.32.0",
     "react-native-safe-area-context": "^5.9.0",
-    "react-native-screens": "^4.27.0"
+    "react-native-screens": "^4.27.0",
+    "react-native-svg": "15.15.4",
+    "zustand": "^5.0.15"
   },
   "scripts": {
     "start": "expo start",
@@ -26,5 +28,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "typescript": "~6.0.3"
+  }
 }
