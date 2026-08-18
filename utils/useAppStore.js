@@ -2,6 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { isLoading } from "expo-font";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { getSubjects } from "../services/api";
 
 const useAppStore=create(
     persist(
@@ -39,29 +40,20 @@ const useAppStore=create(
 
     clearError:()=>set({error:null}),
 
-    fetchSubjects:async()=>{
+    fetchSubjects: () => {
         try {
-            set({isLoading:true,error:null});
-            const response=getSubjects();
-            set({subjects:response,isLoading:false});
-            return response
+          set({ isLoading: true, error: null });
+          const response = getSubjects();
+         
+          set({ subjects: response, isLoading: false });
+          return response;
         } catch (error) {
-            set({error:error.message,isLoading:false})
+          console.error('❌ Error loading subjects:', error);
+          set({ error: error.message, isLoading: false });
+          throw error;
         }
-    },
-    createNewSubject:(subjectData)=>{
-        try {
-            set({isLoading:true,error:null});
-        // create subject api here
+      },
 
-        set((state)=>({
-            subjects:[newSubject,...state.subjects],
-            isLoading:false
-        }));
-        } catch (error) {
-            set({error:error.message})
-        }
-    }
 }),
 {
     name:'CS-Storage',
@@ -80,7 +72,7 @@ const useAppStore=create(
 ))
 export const useSubjects=()=>useAppStore((state)=>state.subjects);
 export const useCurrentSubject=()=>useAppStore((state)=>state.currentSubject)
-export const isLoading=()=>useAppStore((state)=>state.isLoading)
+export const useLoading=()=>useAppStore((state)=>state.isLoading)
 export const useError=()=>useAppStore((state)=>state.error)
 
 

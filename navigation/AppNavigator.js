@@ -2,6 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+
+
 const Tab=createBottomTabNavigator();
 export default function AppNavigator(){
     return(
@@ -13,8 +15,9 @@ export default function AppNavigator(){
                 else if(route.name==="Settings")iconName=focused?'settings':'settings-outline';
                 else if(route.name==="Stats")iconName=focused?'stats-chart':'stats-chart-outline';
                 else if(route.name==="Search")iconName=focused?'search':'search-outline';
-                return <Ionicons name={iconName} size={size} color={color}/>
-            }
+                return <Ionicons name={iconName} size={size} color={'#44D8F1'}/>
+            },
+            tabBarStyle:{backgroundColor:'#3C494C'}
         })}
         
         >

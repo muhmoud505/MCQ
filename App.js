@@ -1,18 +1,20 @@
-
-import { StyleSheet, Text, View,StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from '@react-navigation/native';
 import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
-import { JetBrainsMono_400Regular, JetBrainsMono_500Medium, JetBrainsMono_700Bold } from '@expo-google-fonts/jetbrains-mono';import AppNavigator from './navigation/AppNavigator';
+import { JetBrainsMono_400Regular, JetBrainsMono_500Medium, JetBrainsMono_700Bold } from '@expo-google-fonts/jetbrains-mono';
+
+import AppNavigator from './navigation/AppNavigator';
+import { COLORS } from './utils/colors'; // ✅ Import colors
+
 export default function App() {
-  const [fontsLoaded,setFontsLoaded]=useState(false);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
 
-
-  useEffect(()=>{
-    async function loadFonts(){
-    await Font.loadAsync({
+  useEffect(() => {
+    async function loadFonts() {
+      await Font.loadAsync({
         Inter_400Regular,
         Inter_500Medium,
         Inter_600SemiBold,
@@ -20,37 +22,32 @@ export default function App() {
         JetBrainsMono_400Regular,
         JetBrainsMono_500Medium,
         JetBrainsMono_700Bold,
-    })
-    setFontsLoaded(true);
-      
+      });
+      setFontsLoaded(true);
     }
-    loadFonts()
-  },[])
-  if(!fontsLoaded){
+    loadFonts();
+  }, []);
+
+  if (!fontsLoaded) {
     return null;
   }
+
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <AppNavigator>
-          <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar
-        barStyle={'light-content'}
-        />
-   
-    </View>
-        </AppNavigator>
+    <View style={styles.container}>  {/* ✅ Wrapper View with background */}
+      <SafeAreaProvider>
+        <StatusBar barStyle="light-content" />
+        <NavigationContainer>
+          <AppNavigator />  
         </NavigationContainer>
-    </SafeAreaProvider>
+      </SafeAreaProvider>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    
+    backgroundColor: COLORS.secondary,  // ✅ Added background color
   },
 });
