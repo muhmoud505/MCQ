@@ -3,11 +3,19 @@ import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import SubjectCard from '../components/SubjectCard'
 import useAppStore, { useSubjects } from '../utils/useAppStore'
+import COLORS from '../utils/colors'
+
 
 const HomeScreen = () => {
+  
  const subjects=useSubjects()
+
+ 
   return (
     <SafeAreaView>
+      <View style={{backgroundColor:COLORS.background}}>
+
+      
       <FlatList
         data={subjects}
         keyExtractor={(item)=>item.id}
@@ -19,7 +27,7 @@ const HomeScreen = () => {
         )}
 
       />
-      
+    </View>
     </SafeAreaView>
   )
 }

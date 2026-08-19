@@ -23,6 +23,7 @@ export const COLORS = {
   medium: '#F19640',
   hard: '#EF4444',
   shadow: 'rgba(0, 0, 0, 0.3)',
+  headerBackground:'#0F0F1A'
 };
 
 // ============================================================
