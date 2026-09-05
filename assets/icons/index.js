@@ -3,6 +3,8 @@
 // ============================================================
 
 import { DataStruc } from "./DataStruc";
+import { QUESTIONDONE } from "./QUESTIONDONE";
+import { SHOALLA } from "./SHOALLA";
 // import { NetworksIcon } from "./NetworksIcon";
 // // import { OsIcon } from "./OsIcon";
 // import { AlgorithmsIcon } from "./AlgorithmsIcon";
@@ -11,8 +13,10 @@ import { DataStruc } from "./DataStruc";
 // ============================================================
 // EXPORT ALL ICONS
 // ============================================================
-
+export {QUESTIONDONE}
 export { DataStruc };
+export{SHOALLA}
+
 // export { NetworksIcon };
 // export { OsIcon };
 // export { AlgorithmsIcon };
@@ -23,7 +27,9 @@ export { DataStruc };
 // ============================================================
 
 export const ICON_MAP = {
-  '1': DataStruc,      // Data Structures
+  '1': DataStruc, 
+   '2':SHOALLA ,
+   '3':QUESTIONDONE    // Data Structures
 //   '2': NetworksIcon,   // Networks
 //   '3': OsIcon,         // Operating Systems
 //   '4': AlgorithmsIcon, // Algorithms

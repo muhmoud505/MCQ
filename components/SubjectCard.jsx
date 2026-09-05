@@ -58,9 +58,18 @@ const SubjectCard = ({ subject, onPress }) => {
   // ============================================================
   
   return (
+     //what if i passed the onPress function like this
+    // <TouchableOpacity
+    //   style={styles.card}
+    //   onPress={onPress}
+    //   activeOpacity={0.7}
+    // >
+
+     //i don't know why did u type onPress twice
+      // onPress={()=>onPress && onPress()}
     <TouchableOpacity
       style={styles.card}
-      onPress={onPress}
+         onPress={()=>onPress && onPress()}
       activeOpacity={0.7}
     >
       <View style={styles.cardContent}>
